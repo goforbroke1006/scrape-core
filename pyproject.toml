@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "scrape-core"
+version = "0.1.0"
+description = ""
+authors = ["GoForBroke <go.for.broke1006@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+furl = "^2.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
