@@ -4,6 +4,6 @@ from typing import Optional
 
 
 @dataclass
-class AreaInfoDTO:
+class AreaInfo:
     text: Optional[str] = None
     amount: Optional[int | Fraction] = None

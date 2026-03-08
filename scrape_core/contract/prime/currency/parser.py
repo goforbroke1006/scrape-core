@@ -1,6 +1,6 @@
 import re
 
-from prime.country_code.country_code import CountryAlpha2Code
+from ..country_code.country_code import CountryAlpha2Code
 from .currency_code import Currency3Code
 
 

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from prime.geo.obj_value import CountryAlpha2Code
+from ..country_code.country_code import CountryAlpha2Code
 
 
 @dataclass

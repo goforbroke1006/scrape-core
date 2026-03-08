@@ -4,10 +4,10 @@ from enum import Enum
 from fractions import Fraction
 from typing import Optional, List
 
-from common import ScrapeObjectInfoDTO, ScrapeObjectMediaDTO
-from prime.area import AreaInfoDTO
-from prime.geo.geo_coordinates import GeoCoordinates
-from prime.price.dto import PriceInfo
+from scrape_core.common import ScrapeObjectInfoDTO, ScrapeObjectMediaDTO
+from scrape_core.contract.prime.area import AreaInfo
+from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
+from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
 class RentPeriod(Enum):
@@ -54,10 +54,10 @@ class RealEstateListingDTO:
     rent_period: Optional[RentPeriod | str] = None  # month, week, year
     deposit: Optional[PriceInfo] = None
     
-    living_area_sq_m: Optional[AreaInfoDTO] = None
-    living_area_sq_ft: Optional[AreaInfoDTO] = None
-    plot_area_sq_m: Optional[AreaInfoDTO] = None
-    plot_area_sq_ha: Optional[AreaInfoDTO] = None
+    living_area_sq_m: Optional[AreaInfo] = None
+    living_area_sq_ft: Optional[AreaInfo] = None
+    plot_area_sq_m: Optional[AreaInfo] = None
+    plot_area_sq_ha: Optional[AreaInfo] = None
     
     rooms: Optional[int | Fraction] = None
     bedrooms: Optional[int | Fraction] = None
