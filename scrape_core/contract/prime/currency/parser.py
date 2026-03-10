@@ -4,7 +4,7 @@ from ..country_code.country_code import CountryAlpha2Code
 from .currency_code import Currency3Code
 
 
-def parse_or_none(cls, text: str, country_code: CountryAlpha2Code | None = None):
+def parse_or_none(text: str, country_code: CountryAlpha2Code | None = None):
     try:
         return parse(text, country_code)
     except ValueError:
