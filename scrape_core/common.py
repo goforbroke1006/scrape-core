@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional, List
 
+from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
 from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
@@ -17,6 +18,8 @@ class ScrapeResult:
     details_url: Optional[str] = None
     
     categories: Optional[List[str]] = None
+    
+    country: Optional[CountryAlpha2Code] = None
     
     title: Optional[str] = None
     description_text: Optional[str] = None
