@@ -1,11 +1,11 @@
 from dataclasses import dataclass, field
-from email.headerregistry import Address
 from enum import Enum
 from fractions import Fraction
 from typing import Optional, List
 
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.area import AreaInfo
+from scrape_core.contract.prime.geo.address import AddressInfo
 from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
 from scrape_core.contract.prime.price.price_info import PriceInfo
 
@@ -71,7 +71,7 @@ class RealEstateListing(ScrapeResult):
     
     features: PropertyFeatures = field(default_factory=PropertyFeatures)
     
-    address: Address = field(default_factory=Address)
+    address: AddressInfo = field(default_factory=AddressInfo)
     geo_coordinates: Optional[GeoCoordinates] = None
     
     under_construction: Optional[bool] = None
@@ -81,5 +81,3 @@ class RealEstateListing(ScrapeResult):
     building_type: Optional[str] = None  # apartment, house, villa etc
     building_year: Optional[int] = None
     construction_materials: Optional[List[str]] = field(default_factory=list)
-    
-    

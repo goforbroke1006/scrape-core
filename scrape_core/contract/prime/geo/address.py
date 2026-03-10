@@ -5,7 +5,7 @@ from ..country_code.country_code import CountryAlpha2Code
 
 
 @dataclass
-class AddressInfoDTO:
+class AddressInfo:
     text: Optional[str] = None
     
     country: Optional[CountryAlpha2Code] = None
