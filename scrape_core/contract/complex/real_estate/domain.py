@@ -21,6 +21,7 @@ class DealType(Enum):
 
 
 class RentPeriod(Enum):
+    Day = 'day'
     Week = 'week'
     Month = 'month'
     Year = 'year'
