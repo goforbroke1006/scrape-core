@@ -65,7 +65,7 @@ class RentConditions:
     till_date: Optional[datetime.date] = None
     guests_count_max: Optional[int] = None
     payment_period: Optional[RentPeriod] = None  # month, week, year
-    deposit: Optional[PriceInfo] = None
+    deposit: PriceInfo = field(default_factory=PriceInfo)
     no_pets: Optional[bool] = None
 
 
@@ -76,7 +76,7 @@ class RealEstateListing(ScrapeResult):
     source_listing_id: Optional[str] = None
     multi_listing_service_id: Optional[str] = None
     
-    price_per_m2: Optional[PriceInfo] = None
+    price_per_m2: PriceInfo = field(default_factory=PriceInfo)
     
     rent_conditions: RentConditions = field(default_factory=RentConditions)
     
