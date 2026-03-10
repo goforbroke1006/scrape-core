@@ -1,3 +1,4 @@
+import datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from fractions import Fraction
@@ -48,6 +49,24 @@ class PropertyFeatures:
 
 
 @dataclass
+class LocationFeatures:
+    distance_to_center_meters: Optional[int] = None
+    distance_to_sea_meters: Optional[bool] = None
+    distance_to_metro_meters: Optional[bool] = None
+    metro_stations: Optional[List[str]] = field(default_factory=list)
+
+
+@dataclass
+class RentConditions:
+    available_from_date: Optional[datetime.date] = None
+    from_date: Optional[datetime.date] = None
+    till_date: Optional[datetime.date] = None
+    payment_period: Optional[RentPeriod] = None  # month, week, year
+    deposit: Optional[PriceInfo] = None
+    no_pets: Optional[bool] = None
+
+
+@dataclass
 class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     
@@ -55,8 +74,8 @@ class RealEstateListing(ScrapeResult):
     multi_listing_service_id: Optional[str] = None
     
     price_per_m2: Optional[PriceInfo] = None
-    rent_period: Optional[RentPeriod | str] = None  # month, week, year
-    deposit: Optional[PriceInfo] = None
+    
+    rent_conditions: RentConditions = field(default_factory=RentConditions)
     
     living_area_sq_m: Optional[AreaInfo] = None
     living_area_sq_ft: Optional[AreaInfo] = None
@@ -69,7 +88,8 @@ class RealEstateListing(ScrapeResult):
     floors_total: Optional[int | Fraction] = None
     floor_number: Optional[int | Fraction] = None
     
-    features: PropertyFeatures = field(default_factory=PropertyFeatures)
+    property_features: PropertyFeatures = field(default_factory=PropertyFeatures)
+    location_features: LocationFeatures = field(default_factory=LocationFeatures)
     
     address: AddressInfo = field(default_factory=AddressInfo)
     geo_coordinates: Optional[GeoCoordinates] = None
