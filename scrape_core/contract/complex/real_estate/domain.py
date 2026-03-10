@@ -51,14 +51,9 @@ class PropertyFeatures:
 class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     
-    title: Optional[str] = None
-    description_text: Optional[str] = None
-    
     source_listing_id: Optional[str] = None
     multi_listing_service_id: Optional[str] = None
     
-    price_primary: Optional[PriceInfo] = None
-    price_secondary: Optional[PriceInfo] = None
     price_per_m2: Optional[PriceInfo] = None
     rent_period: Optional[RentPeriod | str] = None  # month, week, year
     deposit: Optional[PriceInfo] = None
@@ -87,4 +82,4 @@ class RealEstateListing(ScrapeResult):
     building_year: Optional[int] = None
     construction_materials: Optional[List[str]] = field(default_factory=list)
     
-    media: ScrapeObjectMediaDTO = field(default_factory=ScrapeObjectMediaDTO)
+    
