@@ -10,3 +10,7 @@ class PriceInfo:
     text: Optional[str] = None
     amount: Optional[Fraction | float | int] = None
     currency: Optional[str | Currency3Code] = None
+    
+    def is_empty(self) -> bool:
+        return (self.text is None or self.text == "") \
+            and (self.amount is None or self.amount == 0)
