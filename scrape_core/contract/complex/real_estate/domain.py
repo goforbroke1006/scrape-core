@@ -10,6 +10,15 @@ from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
 from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
+class DealType(Enum):
+    Sale = 'sale'
+    Buy = 'buy'
+    Rent = 'rent'
+    
+    def __str__(self):
+        return self.value
+
+
 class RentPeriod(Enum):
     Week = 'week'
     Month = 'month'
@@ -41,6 +50,8 @@ class PropertyFeatures:
 @dataclass
 class RealEstateListingDTO:
     object_info: ScrapeObjectInfoDTO = field(default_factory=ScrapeObjectInfoDTO)
+    
+    deal_type: DealType = None
     
     title: Optional[str] = None
     description_text: Optional[str] = None
