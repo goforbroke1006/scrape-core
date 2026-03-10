@@ -10,6 +10,8 @@ class ScrapeResult:
     provider: Optional[str] = None
     details_url: Optional[str] = None
     
+    categories: Optional[List[str]] = None
+    
     scraped_at: Optional[datetime] = None
 
 
