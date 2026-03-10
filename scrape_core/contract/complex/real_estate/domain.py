@@ -48,7 +48,7 @@ class PropertyFeatures:
 
 
 @dataclass
-class RealEstateListingDTO:
+class RealEstateListing:
     object_info: ScrapeObjectInfoDTO = field(default_factory=ScrapeObjectInfoDTO)
     
     deal_type: DealType = None
