@@ -104,3 +104,5 @@ class RealEstateListing(ScrapeResult):
     building_type: Optional[str] = None  # apartment, house, villa etc
     building_year: Optional[int] = None
     construction_materials: Optional[List[str]] = field(default_factory=list)
+    
+    phone_number: Optional[str] = None
