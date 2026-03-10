@@ -35,6 +35,7 @@ class PropertyFeatures:
     terrace: Optional[bool] = None
     garden: Optional[bool] = None
     parking: Optional[bool] = None
+    covered_parking: Optional[bool] = None
     garage: Optional[bool] = None
     elevator: Optional[bool] = None
     pool: Optional[bool] = None
