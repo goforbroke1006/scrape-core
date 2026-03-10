@@ -1,7 +1,7 @@
 from dataclasses import is_dataclass, fields
 from fractions import Fraction
 from decimal import Decimal
-from typing import Any
+from typing import Any, Dict
 
 
 def to_json_scalar(v: Any) -> Any:
@@ -35,5 +35,21 @@ def flatten_dataclass(obj: Any, prefix: str = "") -> dict:
             result.update(flatten_dataclass(value, key + "_"))
         else:
             result[key] = to_json_scalar(value)
+    
+    return result
+
+
+def omit_empty(source: Dict[str, Any]) -> Dict[str, Any]:
+    result = {}
+    
+    for k, v in source.items():
+        if v is None:
+            continue
+        if isinstance(v, str) and len(v) == 0:
+            continue
+        if isinstance(v, (list, dict, tuple)) and len(v) == 0:
+            continue
+        
+        result[k] = v
     
     return result
