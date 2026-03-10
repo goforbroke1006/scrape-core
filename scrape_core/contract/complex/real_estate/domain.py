@@ -63,6 +63,7 @@ class RentConditions:
     available_from_date: Optional[datetime.date] = None
     from_date: Optional[datetime.date] = None
     till_date: Optional[datetime.date] = None
+    guests_count_max: Optional[int] = None
     payment_period: Optional[RentPeriod] = None  # month, week, year
     deposit: Optional[PriceInfo] = None
     no_pets: Optional[bool] = None
