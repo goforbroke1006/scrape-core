@@ -4,7 +4,7 @@ from enum import Enum
 from fractions import Fraction
 from typing import Optional, List
 
-from scrape_core.common import ScrapeObjectInfoDTO, ScrapeObjectMediaDTO
+from scrape_core.common import ScrapeResult, ScrapeObjectMediaDTO
 from scrape_core.contract.prime.area import AreaInfo
 from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
 from scrape_core.contract.prime.price.price_info import PriceInfo
@@ -48,9 +48,7 @@ class PropertyFeatures:
 
 
 @dataclass
-class RealEstateListing:
-    object_info: ScrapeObjectInfoDTO = field(default_factory=ScrapeObjectInfoDTO)
-    
+class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     
     title: Optional[str] = None
