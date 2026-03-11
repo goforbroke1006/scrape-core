@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Optional, List
 
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
+from scrape_core.contract.prime.datetime import DateTimeInfo
 from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
@@ -48,6 +49,8 @@ class ScrapeResult(StrictTypes):
     provider: Optional[str] = None
     details_url: Optional[str] = None
     
+    updated_at: DateTimeInfo = field(default_factory=DateTimeInfo)
+    
     categories: Optional[List[str]] = None
     
     country: Optional[CountryAlpha2Code] = None
@@ -58,7 +61,7 @@ class ScrapeResult(StrictTypes):
     price_primary: PriceInfo = field(default_factory=PriceInfo)
     price_secondary: PriceInfo = field(default_factory=PriceInfo)
     
-    scraped_at: Optional[datetime] = None
+    scraped_at: datetime = None
     
     media: MediaInfo = field(default_factory=MediaInfo)
     
