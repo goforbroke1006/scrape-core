@@ -12,3 +12,10 @@ class Test(TestCase):
         self.assertEqual(pi.text, '1,234.56 USD')
         self.assertEqual(pi.amount, Fraction('1234.56'))
         self.assertEqual(pi.currency, Currency3Code.UnitedStatesDollar)
+    
+    def test_parse_avezor_ge(self):
+        pi = parse('314,600 ₾')
+        self.assertIsNotNone(pi)
+        self.assertEqual(pi.text, '314,600 ₾')
+        self.assertEqual(pi.amount, Fraction('314600'))
+        self.assertEqual(pi.currency, Currency3Code.GeorgianLari)

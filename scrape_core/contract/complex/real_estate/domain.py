@@ -6,6 +6,7 @@ from typing import Optional, List
 
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.area import AreaInfo
+from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.geo.address import AddressInfo
 from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
 from scrape_core.contract.prime.price.price_info import PriceInfo
@@ -85,9 +86,9 @@ class RealEstateListing(ScrapeResult):
     plot_area_sq_m: Optional[AreaInfo] = None
     plot_area_sq_ha: Optional[AreaInfo] = None
     
-    rooms: Optional[int | Fraction] = None
-    bedrooms: Optional[int | Fraction] = None
-    bathrooms: Optional[int | Fraction] = None
+    rooms: CountInfo = field(default_factory=CountInfo)
+    bedrooms: CountInfo = field(default_factory=CountInfo)
+    bathrooms: CountInfo = field(default_factory=CountInfo)
     floors_total: Optional[int | Fraction] = None
     floor_number: Optional[int | Fraction] = None
     
