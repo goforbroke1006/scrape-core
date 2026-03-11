@@ -63,9 +63,9 @@ class LocationFeatures:
 @dataclass
 class RentConditions:
     available_from_date: DateTimeInfo = field(default_factory=DateTimeInfo)
-    from_date: Optional[datetime.date] = None
-    till_date: Optional[datetime.date] = None
-    guests_count_max: Optional[int] = None
+    from_date: DateTimeInfo = field(default_factory=DateTimeInfo)
+    till_date: DateTimeInfo = field(default_factory=DateTimeInfo)
+    guests_count_max: CountInfo = field(default_factory=CountInfo)
     payment_period: Optional[RentPeriod] = None  # month, week, year
     is_owner: Optional[bool] = None
     commission: PriceInfo = field(default_factory=PriceInfo)
