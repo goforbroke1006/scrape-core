@@ -7,6 +7,7 @@ from typing import Optional, List
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.area import AreaInfo
 from scrape_core.contract.prime.count_info import CountInfo
+from scrape_core.contract.prime.datetime import DateTimeInfo
 from scrape_core.contract.prime.geo.address import AddressInfo
 from scrape_core.contract.prime.geo.geo_coordinates import GeoCoordinates
 from scrape_core.contract.prime.price.price_info import PriceInfo
@@ -61,7 +62,7 @@ class LocationFeatures:
 
 @dataclass
 class RentConditions:
-    available_from_date: Optional[datetime.date] = None
+    available_from_date: DateTimeInfo = field(default_factory=DateTimeInfo)
     from_date: Optional[datetime.date] = None
     till_date: Optional[datetime.date] = None
     guests_count_max: Optional[int] = None
