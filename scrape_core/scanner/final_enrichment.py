@@ -1,3 +1,4 @@
+import datetime
 from typing import List, Any
 
 from scrape_core.common import ScrapeResult
@@ -41,6 +42,9 @@ def result_final_enrichment(
     
     for res in results:
         res.provider = pipeline.get_provider()
+        
+        if res.scraped_at is None:
+            res.scraped_at = datetime.datetime.now()
         
         if res.country is None:
             res.country = pipeline.default_country(driver, datum)
