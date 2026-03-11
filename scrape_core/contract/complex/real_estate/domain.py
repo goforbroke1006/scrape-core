@@ -81,10 +81,10 @@ class RealEstateListing(ScrapeResult):
     
     rent_conditions: RentConditions = field(default_factory=RentConditions)
     
-    living_area_sq_m: Optional[AreaInfo] = None
-    living_area_sq_ft: Optional[AreaInfo] = None
-    plot_area_sq_m: Optional[AreaInfo] = None
-    plot_area_sq_ha: Optional[AreaInfo] = None
+    living_area_sq_m: AreaInfo = field(default_factory=AreaInfo)
+    living_area_sq_ft: AreaInfo = field(default_factory=AreaInfo)
+    plot_area_sq_m: AreaInfo = field(default_factory=AreaInfo)
+    plot_area_sq_ha: AreaInfo = field(default_factory=AreaInfo)
     
     rooms: CountInfo = field(default_factory=CountInfo)
     bedrooms: CountInfo = field(default_factory=CountInfo)
