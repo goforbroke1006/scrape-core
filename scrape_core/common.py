@@ -61,7 +61,7 @@ class ScrapeResult(StrictTypes):
     price_primary: PriceInfo = field(default_factory=PriceInfo)
     price_secondary: PriceInfo = field(default_factory=PriceInfo)
     
-    scraped_at: datetime = datetime.now()
+    scraped_at: datetime = datetime.utcnow()
     
     media: MediaInfo = field(default_factory=MediaInfo)
     

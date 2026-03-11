@@ -44,7 +44,7 @@ def result_final_enrichment(
         res.provider = pipeline.get_provider()
         
         if res.scraped_at is None:
-            res.scraped_at = datetime.datetime.now()
+            res.scraped_at = datetime.datetime.utcnow()
         
         if res.country is None:
             res.country = pipeline.default_country(driver, datum)
