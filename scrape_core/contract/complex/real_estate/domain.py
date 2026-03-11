@@ -66,6 +66,7 @@ class RentConditions:
     till_date: Optional[datetime.date] = None
     guests_count_max: Optional[int] = None
     payment_period: Optional[RentPeriod] = None  # month, week, year
+    commission: PriceInfo = field(default_factory=PriceInfo)
     deposit: PriceInfo = field(default_factory=PriceInfo)
     no_pets: Optional[bool] = None
 
