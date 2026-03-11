@@ -12,7 +12,7 @@ class MediaInfo:
     videos: List[str] = field(default_factory=list)
 
 
-@dataclass
+@dataclass(frozen=True)
 class ScrapeResult:
     provider: Optional[str] = None
     details_url: Optional[str] = None

@@ -5,7 +5,7 @@ from fractions import Fraction
 from scrape_core.contract.prime.currency.currency_code import Currency3Code
 
 
-@dataclass
+@dataclass(frozen=True)
 class PriceInfo:
     text: Optional[str] = None
     amount: Optional[Fraction | float | int] = None

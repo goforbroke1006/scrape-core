@@ -31,7 +31,7 @@ class RentPeriod(Enum):
         return self.value.__str__()
 
 
-@dataclass
+@dataclass(frozen=True)
 class PropertyFeatures:
     balcony: Optional[bool] = None
     terrace: Optional[bool] = None
@@ -51,7 +51,7 @@ class PropertyFeatures:
     energy_class: Optional[str] = None
 
 
-@dataclass
+@dataclass(frozen=True)
 class LocationFeatures:
     distance_to_center_meters: Optional[int] = None
     distance_to_sea_meters: Optional[bool] = None
@@ -59,7 +59,7 @@ class LocationFeatures:
     metro_stations: Optional[List[str]] = field(default_factory=list)
 
 
-@dataclass
+@dataclass(frozen=True)
 class RentConditions:
     available_from_date: Optional[datetime.date] = None
     from_date: Optional[datetime.date] = None
@@ -70,7 +70,7 @@ class RentConditions:
     no_pets: Optional[bool] = None
 
 
-@dataclass
+@dataclass(frozen=True)
 class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     

@@ -4,7 +4,7 @@ from typing import Optional
 from ..country_code.country_code import CountryAlpha2Code
 
 
-@dataclass
+@dataclass(frozen=True)
 class AddressInfo:
     text: Optional[str] = None
     
