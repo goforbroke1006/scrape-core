@@ -12,8 +12,39 @@ class MediaInfo:
     videos: List[str] = field(default_factory=list)
 
 
-@dataclass(frozen=True)
-class ScrapeResult:
+from dataclasses import dataclass
+from typing import get_type_hints, Union, get_origin, get_args
+
+
+class StrictTypes:
+    def __setattr__(self, key, value):
+        hints = get_type_hints(self.__class__)
+        
+        if key in hints and value is not None:
+            expected = hints[key]
+            
+            if not _check_type(value, expected):
+                raise TypeError(
+                    f"{key} must be {expected}, got {type(value)}"
+                )
+        
+        super().__setattr__(key, value)
+
+
+def _check_type(value, expected):
+    origin = get_origin(expected)
+    
+    if origin is Union:
+        return any(_check_type(value, t) for t in get_args(expected))
+    
+    if isinstance(expected, type):
+        return isinstance(value, expected)
+    
+    return True
+
+
+@dataclass
+class ScrapeResult(StrictTypes):
     provider: Optional[str] = None
     details_url: Optional[str] = None
     
