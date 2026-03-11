@@ -54,9 +54,9 @@ class PropertyFeatures:
 
 @dataclass
 class LocationFeatures:
-    distance_to_center_meters: Optional[int] = None
-    distance_to_sea_meters: Optional[bool] = None
-    distance_to_metro_meters: Optional[bool] = None
+    distance_to_center_meters: CountInfo = field(default_factory=CountInfo)
+    distance_to_sea_meters: CountInfo = field(default_factory=CountInfo)
+    distance_to_metro_meters: CountInfo = field(default_factory=CountInfo)
     metro_stations: Optional[List[str]] = field(default_factory=list)
 
 
