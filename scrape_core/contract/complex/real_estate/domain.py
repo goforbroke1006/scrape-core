@@ -80,6 +80,8 @@ class RealEstateListing(ScrapeResult):
     source_listing_id: Optional[str] = None
     multi_listing_service_id: Optional[str] = None
     
+    property_type: Optional[str] = None
+    
     price_per_m2: PriceInfo = field(default_factory=PriceInfo)
     
     rent_conditions: RentConditions = field(default_factory=RentConditions)
