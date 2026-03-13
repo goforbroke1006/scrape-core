@@ -13,5 +13,6 @@ class AddressInfo:
     city: Optional[str] = None
     district: Optional[str] = None
     neighborhood: Optional[str] = None
+    zip_code: Optional[str] = None
     
     
