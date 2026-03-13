@@ -1,4 +1,3 @@
-import datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from fractions import Fraction
@@ -57,7 +56,7 @@ class LocationFeatures:
     distance_to_center_meters: CountInfo = field(default_factory=CountInfo)
     distance_to_sea_meters: CountInfo = field(default_factory=CountInfo)
     distance_to_metro_meters: CountInfo = field(default_factory=CountInfo)
-    duration_to_metro_minutes: CountInfo = field(default_factory=CountInfo)
+    duration_to_metro_minutes: CountInfo = field(default_factory=CountInfo)  # TODO: walking or on a car
     metro_stations: Optional[List[str]] = field(default_factory=list)
 
 
