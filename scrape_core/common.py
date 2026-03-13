@@ -58,6 +58,7 @@ class ScrapeResult(StrictTypes):
     title: Optional[str] = None
     description_text: Optional[str] = None
     
+    price_previous: PriceInfo = field(default_factory=PriceInfo)
     price_primary: PriceInfo = field(default_factory=PriceInfo)
     price_secondary: PriceInfo = field(default_factory=PriceInfo)
     
