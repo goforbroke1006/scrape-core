@@ -1,7 +1,7 @@
 from dataclasses import is_dataclass, fields
-from fractions import Fraction
 from decimal import Decimal
-from typing import Any, Dict
+from fractions import Fraction
+from typing import Any, Dict, List
 
 
 def to_json_scalar(v: Any) -> Any:
@@ -53,3 +53,18 @@ def omit_empty(source: Dict[str, Any]) -> Dict[str, Any]:
         result[k] = v
     
     return result
+
+
+def align_columns(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    all_keys = set()
+    
+    for item in items:
+        for k, v in item.items():
+            all_keys.add(k)
+    
+    for item in items:
+        for req_key in all_keys:
+            if req_key not in item:
+                item[req_key] = None
+    
+    return items
