@@ -4,7 +4,7 @@ from fractions import Fraction
 from scrape_core.contract.prime.currency.parser import parse as currency_parse
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
 from scrape_core.contract.prime.price.price_info import PriceInfo
-from scrape_core.html import SYMBOL_NBSP, SYMBOL_NNBSP, SYMBOL_THSP
+from scrape_core.html_entity import SYMBOL_NBSP, SYMBOL_NNBSP, SYMBOL_THSP
 
 
 def parse(text: str, country_code: CountryAlpha2Code = None) -> PriceInfo:

@@ -15,4 +15,4 @@ class AddressInfo:
     neighborhood: Optional[str] = None
     zip_code: Optional[str] = None
     
-    
+    island_name: Optional[str] = None
