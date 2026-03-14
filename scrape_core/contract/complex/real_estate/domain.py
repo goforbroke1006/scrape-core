@@ -73,6 +73,8 @@ class RentConditions:
     commission: PriceInfo = field(default_factory=PriceInfo)
     deposit: PriceInfo = field(default_factory=PriceInfo)
     no_pets: Optional[bool] = None
+    
+    per_year: PriceInfo = field(default_factory=PriceInfo)
 
 
 @dataclass
