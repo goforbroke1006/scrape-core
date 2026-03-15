@@ -39,6 +39,7 @@ def result_final_enrichment(
         print('INFO: load page title', f'"{page_title}"')
         
         if len(categories_list) > 0 and categories_list[-1].lower() != page_title.lower():
+            # skip if the page title equals a last category
             categories_list.append(page_title)
     
     group_title = None
