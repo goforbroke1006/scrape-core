@@ -57,6 +57,7 @@ class VolumeInfo:
 
 @dataclass
 class ProductSizeInfo:
+    countable_items: CountInfo = field(default_factory=CountInfo)  # elements inside
     item_volume_si: VolumeInfo = field(default_factory=VolumeInfo)  # weight or volume
     item_volume_imp: VolumeInfo = field(default_factory=VolumeInfo)  # weight or volume
     pack_count: CountInfo = field(default_factory=CountInfo)  # items in pack
