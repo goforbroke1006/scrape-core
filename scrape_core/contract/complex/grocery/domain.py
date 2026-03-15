@@ -45,19 +45,17 @@ class ProductBrandInfo:
 
 
 @dataclass
-class ProductSizeInfo:
-    value: Optional[float | Fraction] = None
-    unit: Optional[ProductUnit] = None
-    pack_count: CountInfo = field(default_factory=CountInfo)  # items in pack
-    total_volume: Optional[float] = None
-    total_unit: Optional[ProductUnit] = None
-
-
-@dataclass
-class PerVolume:
+class VolumeInfo:
     text: Optional[str] = None  # per 100g / per serving
     count: Optional[Fraction | float | int] = None
     unit: Optional[ProductUnit] = None
+
+
+@dataclass
+class ProductSizeInfo:
+    item_volume: VolumeInfo = field(default_factory=VolumeInfo)  # weight or volume
+    pack_count: CountInfo = field(default_factory=CountInfo)  # items in pack
+    total_volume: VolumeInfo = field(default_factory=VolumeInfo)
 
 
 @dataclass
@@ -75,7 +73,7 @@ class ProductNutritionInfo:
     salt_g: CountInfo = field(default_factory=CountInfo)
     fiber_g: CountInfo = field(default_factory=CountInfo)
     
-    per_volume: PerVolume = field(default_factory=PerVolume)
+    per_volume: VolumeInfo = field(default_factory=VolumeInfo)
 
 
 @dataclass
