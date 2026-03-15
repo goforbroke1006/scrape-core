@@ -17,6 +17,10 @@ class ProductUnit(Enum):
     Piece = "pcs"
     Pack = "pack"
     
+    Ounce = "oz"
+    Pound = "lb"
+    FluidOunce = "fl oz"
+    
     def __str__(self):
         return self.value
 
