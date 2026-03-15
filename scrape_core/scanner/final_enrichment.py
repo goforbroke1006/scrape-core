@@ -27,18 +27,30 @@ def result_final_enrichment(
     from scrape_core.contract.prime.geo.address import AddressInfo
     from scrape_core.contract.prime.price.price_info import PriceInfo
     
+    #
+    #
+    #
+    
     categories_list = pipeline.load_categories(driver, datum)
     categories_list: List[str] | None = copy.deepcopy(categories_list) if categories_list is not None else []
+    
     page_title = pipeline.load_page_title(driver, datum)
     if page_title is not None:
         print('INFO: load page title', f'"{page_title}"')
         categories_list.append(page_title)
+    
+    group_title = None
     if group_el is not None:
         group_title = pipeline.load_group_title(driver, datum, group_el)
         if group_title is not None:
             categories_list.append(group_title)
+    
     if categories_list:
         print('INFO: load page categories', categories_list)
+    
+    #
+    #
+    #
     
     for res in results:
         res.provider = pipeline.get_provider()
@@ -59,6 +71,14 @@ def result_final_enrichment(
         
         if res.categories is None or len(res.categories) == 0:
             res.categories = categories_list
+        
+        # custom enrichment for GroceryListing
+        if page_title:
+            if hasattr(res, 'category') and isinstance(getattr(res, 'category'), str):
+                setattr(res, 'category', page_title)
+        if group_title:
+            if hasattr(res, 'subcategory') and isinstance(getattr(res, 'subcategory'), str):
+                setattr(res, 'subcategory', group_title)
         
         # universal enrichment for all price-info fields
         for attr in dir(res):
