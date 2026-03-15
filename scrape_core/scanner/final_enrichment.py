@@ -52,6 +52,14 @@ def result_final_enrichment(
     #
     #
     
+    def is_optional_str(annotation):
+        from typing import get_origin, get_args, Union
+        
+        if get_origin(annotation) is Union:
+            args = get_args(annotation)
+            return str in args and type(None) in args
+        return annotation is str
+    
     for res in results:
         res.provider = pipeline.get_provider()
         
@@ -74,11 +82,11 @@ def result_final_enrichment(
         
         # custom enrichment for GroceryListing
         if page_title:
-            if hasattr(res, 'category') and isinstance(getattr(res, 'category'), str):
-                setattr(res, 'category', page_title)
+            if hasattr(res, 'category') and is_optional_str(res.category):
+                res.category = page_title
         if group_title:
-            if hasattr(res, 'subcategory') and isinstance(getattr(res, 'subcategory'), str):
-                setattr(res, 'subcategory', group_title)
+            if hasattr(res, 'subcategory') and is_optional_str(res.subcategory):
+                res.subcategory = group_title
         
         # universal enrichment for all price-info fields
         for attr in dir(res):
