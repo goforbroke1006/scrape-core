@@ -126,12 +126,6 @@ class ProductAvailability:
 
 
 @dataclass
-class ProductCategories:
-    category: Optional[str] = None
-    subcategory: Optional[str] = None
-
-
-@dataclass
 class GroceryListing(ScrapeResult):
     brand_info: ProductBrandInfo = field(default_factory=ProductBrandInfo)
     
@@ -147,7 +141,8 @@ class GroceryListing(ScrapeResult):
     
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
     
-    categories: ProductCategories = field(default_factory=ProductCategories)
+    category: Optional[str] = None
+    subcategory: Optional[str] = None
     
     availability: ProductAvailability = field(default_factory=ProductAvailability)
     
