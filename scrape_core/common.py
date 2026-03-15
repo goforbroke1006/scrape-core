@@ -51,7 +51,9 @@ class ScrapeResult(StrictTypes):
     
     updated_at: DateTimeInfo = field(default_factory=DateTimeInfo)
     
-    categories: Optional[List[str]] = None
+    categories: Optional[List[str]] = field(default_factory=list)
+    category: Optional[str] = None
+    subcategory: Optional[str] = None
     
     country: Optional[CountryAlpha2Code] = None
     

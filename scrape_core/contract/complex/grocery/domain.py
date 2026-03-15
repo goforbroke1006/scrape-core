@@ -141,8 +141,7 @@ class GroceryListing(ScrapeResult):
     
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
     
-    category: Optional[str] = None
-    subcategory: Optional[str] = None
+    
     
     availability: ProductAvailability = field(default_factory=ProductAvailability)
     
