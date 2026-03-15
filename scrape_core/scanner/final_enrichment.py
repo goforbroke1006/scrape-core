@@ -82,10 +82,12 @@ def result_final_enrichment(
         
         # custom enrichment for GroceryListing
         if page_title:
-            if hasattr(res, 'category') and is_optional_str(res.category):
+            if (hasattr(res, 'category')
+                    and is_optional_str(annotation=res.__class__.__annotations__.get('category'))):
                 res.category = page_title
         if group_title:
-            if hasattr(res, 'subcategory') and is_optional_str(res.subcategory):
+            if (hasattr(res, 'subcategory')
+                    and is_optional_str(annotation=res.__class__.__annotations__.get('subcategory'))):
                 res.subcategory = group_title
         
         # universal enrichment for all price-info fields
