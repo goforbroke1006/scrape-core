@@ -5,6 +5,7 @@ class Currency3Code(Enum):
     ISO 4217
     """
     RussianRuble = 'RUB'
+    TajikistaniSomoni = 'TJS'
     Euro = 'EUR'
     UnitedStatesDollar = 'USD'
     NewZealandDollar = 'NZD'
