@@ -1,5 +1,8 @@
-from dataclasses import dataclass, field
-from datetime import datetime
+from dataclasses import dataclass, field, is_dataclass, asdict
+from datetime import datetime, date
+from decimal import Decimal
+from enum import Enum
+from fractions import Fraction
 from typing import Optional, List
 
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
@@ -69,3 +72,25 @@ class ScrapeResult(StrictTypes):
     media: MediaInfo = field(default_factory=MediaInfo)
     
     robots_txt_allows: bool = False
+
+
+def scrape_result_serializer(obj):
+    if is_dataclass(obj):
+        return asdict(obj)
+    
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    
+    if isinstance(obj, date):
+        return obj.isoformat()
+    
+    if isinstance(obj, Enum):
+        return obj.value
+    
+    if isinstance(obj, Fraction):
+        return float(obj)
+    
+    if isinstance(obj, Decimal):
+        return float(obj)
+    
+    raise TypeError(f"Type {type(obj)} not serializable")
