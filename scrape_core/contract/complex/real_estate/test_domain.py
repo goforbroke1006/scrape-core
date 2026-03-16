@@ -1,10 +1,9 @@
 import json
 from unittest import TestCase
-from dataclasses import asdict
 
 from scrape_core.common import scrape_result_serializer
-from .domain import RealEstateListing
 from scrape_core.flattener import flatten_dataclass
+from .domain import RealEstateListing
 
 
 class TestRealEstateListing(TestCase):
@@ -17,7 +16,7 @@ class TestRealEstateListing(TestCase):
         assert 'object_info_domain' in fl_dict
         assert fl_dict['provider'] == 'foo-bar.com'
         assert fl_dict['property_features_pool'] == 'foo-bar.com'
-        
+    
     def test_json_serialize_and_deserialize(self):
         obj = RealEstateListing()
         obj.provider = 'foo-bar.com'

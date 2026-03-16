@@ -7,6 +7,7 @@ from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
 from scrape_core.contract.prime.datetime import DateTimeInfo
+from scrape_core.contract.prime.geo.address import AddressInfo
 
 
 class ProductUnit(Enum):
@@ -142,10 +143,10 @@ class GroceryListing(ScrapeResult):
     
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
     
-    
-    
     availability: ProductAvailability = field(default_factory=ProductAvailability)
     
     tags: Optional[List[str]] = field(default_factory=list)
     
     country_of_origin: Optional[CountryAlpha2Code] = None
+    
+    address: AddressInfo = field(default_factory=AddressInfo)
