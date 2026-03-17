@@ -1,9 +1,11 @@
 from enum import Enum
 
+
 class Currency3Code(Enum):
     """
     ISO 4217
     """
+    WestAfricanCFAFranc = 'CFA'  # https://en.wikipedia.org/wiki/West_African_CFA_franc
     RussianRuble = 'RUB'
     TajikistaniSomoni = 'TJS'
     Euro = 'EUR'
@@ -117,4 +119,3 @@ class Currency3Code(Enum):
     
     def __str__(self) -> str:
         return self.value
-    
