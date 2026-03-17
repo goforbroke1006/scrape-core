@@ -5,6 +5,19 @@ class Currency3Code(Enum):
     """
     ISO 4217
     """
+    GuyaneseDollar = 'GYD'  # https://en.wikipedia.org/wiki/Guyanese_dollar
+    SamoanTala = 'WST'  # https://en.wikipedia.org/wiki/Samoan_t%C4%81l%C4%81
+    PapuaNewGuineanKina = 'PGK'  # https://www.google.com/search?q=PGK+currency&sca_esv=0f1789b80fec1324&biw=1870&bih=961&sxsrf=ANbL-n7mCBpXCD8hw5DdEN8oEOyCFXRh5A%3A1773790968817&ei=-Oa5aZLLMbaBi-gPyPDXgAY&ved=0ahUKEwiSp-ikjqiTAxW2wAIHHUj4FWAQ4dUDCBE&uact=5&oq=PGK+currency&gs_lp=Egxnd3Mtd2l6LXNlcnAiDFBHSyBjdXJyZW5jeTIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeSP0JUPUCWPUCcAJ4AZABAJgBdKABdKoBAzAuMbgBA8gBAPgBAvgBAZgCA6ACnAHCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBZgDAIgGAZAGCpIHAzIuMaAH7QWyBwMwLjG4B4MBwgcDMy0zyAcggAgA&sclient=gws-wiz-serp#:~:text=Web%20results-,Papua%20New%20Guinean%20kina,-Wikipedia
+    LibyanDinar = 'LYD'  # https://en.wikipedia.org/wiki/Libyan_dinar
+    EthiopianBirr = 'ETB'  # https://en.wikipedia.org/wiki/Ethiopian_birr
+    CentralAfricanCFAFranc = 'XAF'  # https://en.wikipedia.org/wiki/Central_African_CFA_franc
+    AfghanAfghani = 'AFN'  # https://en.wikipedia.org/wiki/Afghan_afghani
+    SwaziLilangeni = 'SZL'  # https://en.wikipedia.org/wiki/Swazi_lilangeni
+    TanzanianShilling = 'TZS'  # https://en.wikipedia.org/wiki/Tanzanian_shilling
+    CapeVerdeanEscudo = 'CVE'  # https://en.wikipedia.org/wiki/Cape_Verdean_escudo
+    BhutaneseNgultrum = 'BTN'  # https://en.wikipedia.org/wiki/Bhutanese_ngultrum
+    SudanesePound = 'SDG'  # https://en.wikipedia.org/wiki/Sudanese_pound
+    MaldivianRufiyaa = 'MVR'  # https://en.wikipedia.org/wiki/Maldivian_rufiyaa
     BruneiDollar = 'BND'  # https://en.wikipedia.org/wiki/Brunei_dollar
     WestAfricanCFAFranc = 'CFA'  # https://en.wikipedia.org/wiki/West_African_CFA_franc
     RussianRuble = 'RUB'
