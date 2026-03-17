@@ -5,6 +5,7 @@ class Currency3Code(Enum):
     """
     ISO 4217
     """
+    BruneiDollar = 'BND'  # https://en.wikipedia.org/wiki/Brunei_dollar
     WestAfricanCFAFranc = 'CFA'  # https://en.wikipedia.org/wiki/West_African_CFA_franc
     RussianRuble = 'RUB'
     TajikistaniSomoni = 'TJS'
