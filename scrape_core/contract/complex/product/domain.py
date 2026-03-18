@@ -5,6 +5,7 @@ from typing import Optional, Dict, Any
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
+from scrape_core.contract.prime.geo.address import AddressInfo
 
 
 @dataclass
@@ -52,3 +53,5 @@ class ProductListing(ScrapeResult):
     availability: ProductAvailability = field(default_factory=ProductAvailability)
     
     characteristics: Optional[Dict[str, Any]] = field(default_factory=dict)
+    
+    address: AddressInfo = field(default_factory=AddressInfo)
