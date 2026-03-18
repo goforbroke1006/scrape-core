@@ -43,6 +43,8 @@ class ProductAvailability:
 
 @dataclass
 class ProductListing(ScrapeResult):
+    source_listing_id: Optional[str] = None
+    
     brand_info: ProductBrandInfo = field(default_factory=ProductBrandInfo)
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
     computing_characteristics: ComputingCharacteristics = field(default_factory=ComputingCharacteristics)
