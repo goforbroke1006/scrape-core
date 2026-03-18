@@ -44,6 +44,11 @@ class ProductAvailability:
 
 
 @dataclass
+class ProductCondition:
+    is_used: Optional[bool] = None
+
+
+@dataclass
 class ProductListing(ScrapeResult):
     internal_id: Optional[str] = None
     
@@ -55,3 +60,5 @@ class ProductListing(ScrapeResult):
     characteristics: Optional[Dict[str, Any]] = field(default_factory=dict)
     
     address: AddressInfo = field(default_factory=AddressInfo)
+    
+    condition: ProductCondition = field(default_factory=ProductCondition)
