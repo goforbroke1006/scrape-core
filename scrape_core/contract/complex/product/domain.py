@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from fractions import Fraction
-from typing import Optional
+from typing import Optional, Dict, Any
 
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
@@ -49,3 +49,5 @@ class ProductListing(ScrapeResult):
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
     computing_characteristics: ComputingCharacteristics = field(default_factory=ComputingCharacteristics)
     availability: ProductAvailability = field(default_factory=ProductAvailability)
+    
+    characteristics: Optional[Dict[str, Any]] = field(default_factory=dict)
