@@ -37,6 +37,7 @@ class ComputingCharacteristics:
 
 @dataclass
 class ProductAvailability:
+    text: Optional[str] = None
     in_stock: Optional[bool] = None
     stock_quantity: CountInfo = field(default_factory=CountInfo)
 
