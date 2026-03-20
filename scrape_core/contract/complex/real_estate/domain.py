@@ -98,6 +98,7 @@ class RealEstateListing(ScrapeResult):
     rooms: CountInfo = field(default_factory=CountInfo)
     bedrooms: CountInfo = field(default_factory=CountInfo)
     bathrooms: CountInfo = field(default_factory=CountInfo)
+    receptions: CountInfo = field(default_factory=CountInfo)
     floors_total: Optional[int | Fraction] = None
     floor_number: Optional[int | Fraction] = None
     
