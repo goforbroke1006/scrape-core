@@ -82,7 +82,7 @@ class RentConditions:
 class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     
-    source_listing_id: Optional[str] = None
+    source_listing_id: Optional[str | int] = None
     multi_listing_service_id: Optional[str] = None
     
     property_type: Optional[str] = None
