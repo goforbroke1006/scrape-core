@@ -1,11 +1,17 @@
 import json
 import re
+from dataclasses import dataclass
 from fractions import Fraction
+from typing import Optional
 
 COORDINATE_EXPECTED_FORMAT_RE = re.compile(r'^[+-]?\d+\.\d{6,}$')
 
 
+@dataclass
 class GeoCoordinates:
+    latitude: Optional[Fraction] = None
+    longitude: Optional[Fraction] = None
+    
     def __init__(self, latitude: Fraction | str, longitude: Fraction | str):
         """
         :param latitude: latitude
