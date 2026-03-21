@@ -39,6 +39,7 @@ class PropertyFeatures:
     terrace: Optional[bool] = None
     garden: Optional[bool] = None
     parking: Optional[bool] = None
+    parking_spaces: CountInfo = field(default_factory=CountInfo)
     covered_parking: Optional[bool] = None
     garage: Optional[bool] = None
     elevator: Optional[bool] = None
