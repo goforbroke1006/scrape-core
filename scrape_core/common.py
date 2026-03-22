@@ -78,6 +78,12 @@ def scrape_result_serializer(obj):
     if is_dataclass(obj):
         return asdict(obj)
     
+    if isinstance(obj, datetime.datetime):
+        return obj
+    
+    if isinstance(obj, datetime.date):
+        return obj
+    
     if isinstance(obj, Enum):
         return obj.value
     
