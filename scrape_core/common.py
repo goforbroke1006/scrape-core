@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field, is_dataclass, asdict
-from datetime import datetime, date
+import datetime
 from decimal import Decimal
 from enum import Enum
 from fractions import Fraction
@@ -67,7 +67,7 @@ class ScrapeResult(StrictTypes):
     price_primary: PriceInfo = field(default_factory=PriceInfo)
     price_secondary: PriceInfo = field(default_factory=PriceInfo)
     
-    scraped_at: datetime = datetime.utcnow()
+    scraped_at: datetime.datetime = datetime.datetime.now(datetime.timezone.utc)
     
     media: MediaInfo = field(default_factory=MediaInfo)
     
@@ -77,12 +77,6 @@ class ScrapeResult(StrictTypes):
 def scrape_result_serializer(obj):
     if is_dataclass(obj):
         return asdict(obj)
-    
-    if isinstance(obj, datetime):
-        return obj.isoformat()
-    
-    if isinstance(obj, date):
-        return obj.isoformat()
     
     if isinstance(obj, Enum):
         return obj.value
