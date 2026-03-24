@@ -8,6 +8,7 @@ from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.country_code.country_code import CountryAlpha2Code
 from scrape_core.contract.prime.datetime import DateTimeInfo
 from scrape_core.contract.prime.geo.address import AddressInfo
+from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
 class ProductUnit(Enum):
@@ -54,6 +55,12 @@ class VolumeInfo:
     text: Optional[str] = None  # per 100g / per serving
     count: Optional[Fraction | float | int] = None
     unit: Optional[ProductUnit] = None
+
+
+@dataclass
+class PricePerVolume:
+    price: PriceInfo = field(default_factory=PriceInfo)
+    volume: VolumeInfo = field(default_factory=VolumeInfo)
 
 
 @dataclass
@@ -150,3 +157,5 @@ class GroceryListing(ScrapeResult):
     country_of_origin: Optional[CountryAlpha2Code] = None
     
     address: AddressInfo = field(default_factory=AddressInfo)
+    
+    price_per_volume: PricePerVolume = field(default_factory=PricePerVolume)

@@ -72,25 +72,3 @@ class ScrapeResult(StrictTypes):
     media: MediaInfo = field(default_factory=MediaInfo)
     
     robots_txt_allows: bool = False
-
-
-def scrape_result_serializer(obj):
-    if is_dataclass(obj):
-        return asdict(obj)
-    
-    if isinstance(obj, datetime.datetime):
-        return obj
-    
-    if isinstance(obj, datetime.date):
-        return obj
-    
-    if isinstance(obj, Enum):
-        return obj.value
-    
-    if isinstance(obj, Fraction):
-        return float(obj)
-    
-    if isinstance(obj, Decimal):
-        return float(obj)
-    
-    raise TypeError(f"Type {type(obj)} not serializable")
