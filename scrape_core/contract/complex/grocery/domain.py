@@ -12,10 +12,14 @@ from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
 class ProductUnit(Enum):
-    Gram = "g"
+    
     Kilogram = "kg"
-    Milliliter = "ml"
+    Gram = "g"
+    
     Liter = "l"
+    Centiliter = "cl"
+    Milliliter = "ml"
+    
     Piece = "pcs"
     Pack = "pack"
     
