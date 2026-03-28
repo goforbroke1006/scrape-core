@@ -256,7 +256,7 @@ class CountryAlpha2Code(Enum):
     UK = UnitedKingdom
     
     def __str__(self) -> str:
-        return self.value
+        return self.value.__str__()
     
     def __repr__(self) -> str:
         return self.value
