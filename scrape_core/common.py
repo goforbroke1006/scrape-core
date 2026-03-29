@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field, is_dataclass, asdict
 import datetime
+from dataclasses import dataclass, field, is_dataclass, fields
 from decimal import Decimal
 from enum import Enum
 from fractions import Fraction
@@ -72,3 +72,29 @@ class ScrapeResult(StrictTypes):
     media: MediaInfo = field(default_factory=MediaInfo)
     
     robots_txt_allows: bool = False
+
+
+def to_mongo_dict(obj):
+    if is_dataclass(obj):
+        result = {}
+        for f in fields(obj):
+            value = getattr(obj, f.name)
+            result[f.name] = to_mongo_dict(value)
+        return result
+    
+    if isinstance(obj, dict):
+        return {k: to_mongo_dict(v) for k, v in obj.items()}
+    
+    if isinstance(obj, list):
+        return [to_mongo_dict(v) for v in obj]
+    
+    if isinstance(obj, Enum):
+        return obj.value
+    
+    if isinstance(obj, Fraction):
+        return float(obj)
+    
+    if isinstance(obj, Decimal):
+        return float(obj)
+    
+    return obj
