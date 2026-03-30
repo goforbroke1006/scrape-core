@@ -21,6 +21,8 @@ class ExchangeRateRow(StrictTypes):
     base_currency: Optional[Currency3Code] = None
     quote_currency: Optional[Currency3Code] = None
     
+    base_amount: Optional[Fraction] = None
+    
     system_buy_rate: Optional[Fraction] = None
     system_sell_rate: Optional[Fraction] = None
     
