@@ -2,6 +2,7 @@ import datetime
 from typing import List, Any
 
 from scrape_core.common import ScrapeResult
+from scrape_core.contract.complex.exchange_rate.domain import ExchangeRateRow
 from scrape_core.scanner.pipeline import StandardPipeline
 
 
@@ -59,7 +60,7 @@ def result_final_enrichment(
         res.provider = pipeline.get_provider()
         
         if res.scraped_at is None:
-            res.scraped_at = datetime.datetime.utcnow()
+            res.scraped_at = datetime.datetime.now(datetime.timezone.utc)
         
         if res.country is None:
             res.country = pipeline.default_country(driver, datum)
@@ -91,6 +92,42 @@ def result_final_enrichment(
             if isinstance(getattr(res, attr), PriceInfo):
                 if getattr(res, attr).currency is None and not getattr(res, attr).is_empty():
                     getattr(res, attr).currency = pipeline.default_currency(driver, datum)
+        
+        res.robots_txt_allows = robots_txt_allows
+    
+    return results
+
+
+def rate_final_enrichment(
+        results: List[ExchangeRateRow],
+        pipeline: StandardPipeline,
+        driver: Any,
+        datum: Any,
+        group_el: Any,
+        robots_txt_allows: bool = False,
+) -> List[ExchangeRateRow]:
+    """
+    After method StandardPipeline::scan_card build object,
+    we try to fill the gaps with some additional data if its were missed.
+    
+    @param results:  List[ExchangeRateRow] - what we found on the web page
+    @param pipeline: StandardPipeline   - the scanning process metadata and instructions
+    @param driver:   WebDriver          - accessor to page content
+    @param datum:    Any                - accessor to scanning context
+    """
+    
+    #
+    #
+    #
+    
+    for res in results:
+        res.provider = pipeline.get_provider()
+        
+        if res.scraped_at is None:
+            res.scraped_at = datetime.datetime.now(datetime.timezone.utc)
+        
+        if res.country is None:
+            res.country = pipeline.default_country(driver, datum)
         
         res.robots_txt_allows = robots_txt_allows
     
