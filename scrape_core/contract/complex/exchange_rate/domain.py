@@ -1,3 +1,4 @@
+import datetime
 from dataclasses import dataclass, field
 from fractions import Fraction
 from typing import Optional
@@ -28,3 +29,19 @@ class ExchangeRateRow(StrictTypes):
     
     change_absolute: Optional[Fraction] = None
     change_percentage: Optional[Fraction] = None
+    
+    scraped_at: datetime.datetime = datetime.datetime.now(datetime.timezone.utc)
+
+
+def from_one_base_to_n_quote(
+        base_currency: Currency3Code,
+        quote_rate: Fraction,
+        quote_currency: Currency3Code,
+) -> ExchangeRateRow:
+    row = ExchangeRateRow()
+    row.base_amount = Fraction(1.00)
+    row.base_currency = base_currency
+    row.system_buy_rate = quote_rate
+    row.system_sell_rate = quote_rate
+    row.quote_currency = quote_currency
+    return row
