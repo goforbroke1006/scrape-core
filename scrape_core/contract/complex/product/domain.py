@@ -23,6 +23,7 @@ class ProductBarcodeInfo:
     upc: Optional[str] = None
     sku: Optional[str] = None
     internal_id: Optional[str] = None
+    manufacturer_art_no: Optional[str] = None
 
 
 @dataclass
