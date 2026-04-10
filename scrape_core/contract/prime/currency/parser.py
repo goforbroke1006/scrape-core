@@ -117,6 +117,8 @@ def parse(text: str, country_code: CountryAlpha2Code | None = None):
             return Currency3Code.JapaneseYen
         if country_code == CountryAlpha2Code.China:
             return Currency3Code.ChineseYuan
+    elif '円' in text:
+        return CountryAlpha2Code.Japan
     elif 'ZŁ' in text or 'zł' in text:
         return Currency3Code.PolishZlotych
     elif '₫' in text:
