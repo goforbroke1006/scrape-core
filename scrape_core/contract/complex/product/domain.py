@@ -52,6 +52,7 @@ class ProductCondition:
 @dataclass
 class ProductListing(ScrapeResult):
     internal_id: Optional[str] = None
+    variant_id: Optional[str] = None
     
     brand_info: ProductBrandInfo = field(default_factory=ProductBrandInfo)
     barcode_info: ProductBarcodeInfo = field(default_factory=ProductBarcodeInfo)
