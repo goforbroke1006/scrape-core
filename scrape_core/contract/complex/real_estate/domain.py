@@ -114,6 +114,10 @@ class RealEstateListing(ScrapeResult):
     secondary_market: Optional[bool] = None
     renovation_needed: Optional[bool] = None
     developer_name: Optional[str] = None
+    
+    agency_name: Optional[str] = None
+    agent_name: Optional[str] = None
+    
     building_type: Optional[str] = None  # apartment, house, villa etc
     building_year: Optional[int] = None
     construction_materials: Optional[List[str]] = field(default_factory=list)
