@@ -28,6 +28,9 @@ class StandardPipeline(ABC):
     def default_city(self, driver, datum) -> str | None:
         return None
     
+    def default_neighborhood(self, driver, datum) -> str | None:
+        return None
+    
     @abstractmethod
     def default_currency(self, driver, datum) -> Currency3Code | None:
         return None

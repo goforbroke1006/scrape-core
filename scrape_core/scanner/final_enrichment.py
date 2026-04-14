@@ -72,6 +72,9 @@ def result_final_enrichment(
             
             if getattr(res, 'address').city is None:
                 res.address.city = pipeline.default_city(driver, datum)
+            
+            if getattr(res, 'address').neighborhood is None:
+                res.address.neighborhood = pipeline.default_neighborhood(driver, datum)
         
         if res.categories is None or len(res.categories) == 0:
             res.categories = categories_list
