@@ -28,6 +28,9 @@ class StandardPipeline(ABC):
     def default_city(self, driver, datum) -> str | None:
         return None
     
+    def default_district(self, driver, datum) -> str | None:
+        return None
+    
     def default_neighborhood(self, driver, datum) -> str | None:
         return None
     
