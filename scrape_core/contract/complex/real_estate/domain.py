@@ -33,7 +33,7 @@ class RentPeriod(Enum):
 
 @dataclass
 class PropertyFeatures:
-    amenities_list: Optional[List[str]] = field(default_factory=list)
+    amenities_list: List[str] = field(default_factory=list)
     
     balcony: Optional[bool] = None
     terrace: Optional[bool] = None
@@ -60,7 +60,7 @@ class LocationFeatures:
     distance_to_sea_meters: CountInfo = field(default_factory=CountInfo)
     distance_to_metro_meters: CountInfo = field(default_factory=CountInfo)
     duration_to_metro_minutes: CountInfo = field(default_factory=CountInfo)  # TODO: walking or on a car
-    metro_stations: Optional[List[str]] = field(default_factory=list)
+    metro_stations: List[str] = field(default_factory=list)
 
 
 @dataclass
@@ -120,6 +120,6 @@ class RealEstateListing(ScrapeResult):
     
     building_type: Optional[str] = None  # apartment, house, villa etc
     building_year: Optional[int] = None
-    construction_materials: Optional[List[str]] = field(default_factory=list)
+    construction_materials: List[str] = field(default_factory=list)
     
     phone_number: Optional[str] = None
