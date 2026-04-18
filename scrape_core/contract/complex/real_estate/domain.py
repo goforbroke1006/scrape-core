@@ -38,6 +38,7 @@ class PropertyFeatures:
     storage_room: Optional[bool] = None
     balcony: Optional[bool] = None
     terrace: Optional[bool] = None
+    terrace_area_sq_m: AreaInfo = field(default_factory=AreaInfo)
     garden: Optional[bool] = None
     parking: Optional[bool] = None
     parking_spaces: CountInfo = field(default_factory=CountInfo)
