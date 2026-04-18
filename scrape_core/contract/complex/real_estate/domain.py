@@ -35,6 +35,7 @@ class RentPeriod(Enum):
 class PropertyFeatures:
     amenities_list: List[str] = field(default_factory=list)
     
+    storage_room: Optional[bool] = None
     balcony: Optional[bool] = None
     terrace: Optional[bool] = None
     garden: Optional[bool] = None
