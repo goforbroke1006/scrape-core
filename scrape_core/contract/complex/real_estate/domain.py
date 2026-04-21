@@ -46,6 +46,7 @@ class PropertyFeatures:
     garage: Optional[bool] = None
     elevator: Optional[bool] = None
     pool: Optional[bool] = None
+    sea_view: Optional[bool] = None
     
     heating: Optional[bool] = None
     heating_type: Optional[str] = None
