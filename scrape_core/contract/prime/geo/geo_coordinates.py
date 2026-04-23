@@ -21,10 +21,10 @@ class GeoCoordinates:
         """
         if isinstance(latitude, str):
             if COORDINATE_EXPECTED_FORMAT_RE.match(latitude) is None:
-                raise ValueError("Invalid latitude format")
+                raise ValueError(f"invalid latitude format: {latitude}")
         if isinstance(longitude, str):
             if COORDINATE_EXPECTED_FORMAT_RE.match(longitude) is None:
-                raise ValueError("Invalid longitude format")
+                raise ValueError(f"invalid longitude format: {longitude}")
         
         self.latitude = latitude
         self.longitude = longitude
