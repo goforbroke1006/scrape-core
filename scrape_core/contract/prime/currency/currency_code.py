@@ -132,5 +132,8 @@ class Currency3Code(Enum):
     ParaguayanGuarani = 'PYG'
     ArmenianDram = 'AMD'
     
+    ZRX = 'ZRX'
+    GoldCoin = 'GLC'
+    
     def __str__(self) -> str:
         return self.value
