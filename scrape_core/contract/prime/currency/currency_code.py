@@ -131,6 +131,7 @@ class Currency3Code(Enum):
     BermudianDollar = 'BMD'
     ParaguayanGuarani = 'PYG'
     ArmenianDram = 'AMD'
+    AngolanKwanza = 'AOA'
     
     ZRX = 'ZRX'
     GoldCoin = 'GLC'
