@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 from typing import Optional
 
-COORDINATE_EXPECTED_FORMAT_RE = re.compile(r'^[+-]?\d+\.\d{5,}$')
+COORDINATE_EXPECTED_FORMAT_RE = re.compile(r'^[+-]?\d+\.\d{4,}$')
 
 
 @dataclass
