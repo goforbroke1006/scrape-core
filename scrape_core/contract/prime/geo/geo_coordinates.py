@@ -26,8 +26,8 @@ class GeoCoordinates:
             if COORDINATE_EXPECTED_FORMAT_RE.match(longitude) is None:
                 raise ValueError(f"invalid longitude format: {longitude}")
         
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude = Fraction(latitude) if isinstance(latitude, str) else latitude
+        self.longitude = Fraction(longitude) if isinstance(longitude, str) else longitude
     
     def __str__(self):
         json_str = json.dumps(self.__dict__)
