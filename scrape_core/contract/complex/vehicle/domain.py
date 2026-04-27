@@ -5,6 +5,7 @@ from typing import List, Optional
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.datetime import DateTimeInfo
+from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
 @dataclass
@@ -54,3 +55,5 @@ class VehicleListing(ScrapeResult):
     co2_emission_g_per_km: SubstanceAmount = field(default_factory=SubstanceAmount)
     
     last_service_date: DateTimeInfo = field(default_factory=DateTimeInfo)
+    
+    price_system_recommended: PriceInfo = field(default_factory=PriceInfo)
