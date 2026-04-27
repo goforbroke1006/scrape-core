@@ -5,6 +5,7 @@ from typing import List, Optional
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
 from scrape_core.contract.prime.datetime import DateTimeInfo
+from scrape_core.contract.prime.geo.address import AddressInfo
 from scrape_core.contract.prime.price.price_info import PriceInfo
 
 
@@ -57,3 +58,5 @@ class VehicleListing(ScrapeResult):
     last_service_date: DateTimeInfo = field(default_factory=DateTimeInfo)
     
     price_system_recommended: PriceInfo = field(default_factory=PriceInfo)
+    
+    seller_location: AddressInfo = field(default_factory=AddressInfo)
