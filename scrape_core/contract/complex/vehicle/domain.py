@@ -32,10 +32,11 @@ class VehicleListing(ScrapeResult):
     drivetrain: Optional[str] = None  # AWD | FWD | RWD
     fuel_type: Optional[str] = None  # Petrol | Diesel | Electric
     
-    mileage_miles: Optional[int | Fraction] = None
-    mileage_kilometers: Optional[int | Fraction] = None
-    engine_capacity_l: Optional[Fraction | int] = None
-    engine_capacity_cc: Optional[Fraction | int] = None
+    horse_power: CountInfo = field(default_factory=CountInfo)
+    mileage_miles: CountInfo = field(default_factory=CountInfo)
+    mileage_kilometers: CountInfo = field(default_factory=CountInfo)
+    engine_capacity_l: SubstanceAmount = field(default_factory=SubstanceAmount)
+    engine_capacity_cc: SubstanceAmount = field(default_factory=SubstanceAmount)
     
     engine_type: Optional[str] = None
     
