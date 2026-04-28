@@ -59,4 +59,5 @@ class VehicleListing(ScrapeResult):
     
     price_system_recommended: PriceInfo = field(default_factory=PriceInfo)
     
+    seller_name: Optional[str] = None
     seller_location: AddressInfo = field(default_factory=AddressInfo)
