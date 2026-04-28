@@ -64,3 +64,4 @@ class VehicleListing(ScrapeResult):
     
     features_list: Optional[List[str]] = field(default_factory=list)
     features_map: Optional[Dict[str, Any]] = field(default_factory=dict)
+
