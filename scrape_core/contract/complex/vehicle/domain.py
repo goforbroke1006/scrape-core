@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from fractions import Fraction
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.count_info import CountInfo
@@ -61,3 +61,6 @@ class VehicleListing(ScrapeResult):
     
     seller_name: Optional[str] = None
     seller_location: AddressInfo = field(default_factory=AddressInfo)
+    
+    features_list: Optional[List[str]] = field(default_factory=list)
+    features_map: Optional[Dict[str, Any]] = field(default_factory=dict)
