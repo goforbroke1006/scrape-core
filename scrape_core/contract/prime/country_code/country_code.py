@@ -246,6 +246,10 @@ class CountryAlpha2Code(Enum):
     Yemen = 'YE'
     
     #
+    
+    Guernsey = 'GG'
+    
+    #
     # Alias
     #
     
