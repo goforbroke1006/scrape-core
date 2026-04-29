@@ -27,8 +27,8 @@ class VehicleListing(ScrapeResult):
     issue_year: Optional[int] = None
     
     body_type: Optional[str] = None  # Hatchback | SUV | Coupe | Saloon
-    interior_colors: Optional[List[str]] = field(default_factory=list)
-    exterior_colors: Optional[List[str]] = field(default_factory=list)
+    interior_colors: List[str] = field(default_factory=list)
+    exterior_colors: List[str] = field(default_factory=list)
     
     transmission_type: Optional[str] = None  # Automatic | Manual
     drivetrain: Optional[str] = None  # AWD | FWD | RWD
@@ -62,6 +62,5 @@ class VehicleListing(ScrapeResult):
     seller_name: Optional[str] = None
     seller_location: AddressInfo = field(default_factory=AddressInfo)
     
-    features_list: Optional[List[str]] = field(default_factory=list)
-    features_map: Optional[Dict[str, Any]] = field(default_factory=dict)
-
+    features_list: List[str] = field(default_factory=list)
+    features_map: Dict[str, Any] = field(default_factory=dict)
