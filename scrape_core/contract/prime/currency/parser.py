@@ -110,6 +110,8 @@ def parse(text: str, country_code: CountryAlpha2Code | None = None):
         return Currency3Code.UkrainianHryvnia
     elif '₺' in text:
         return Currency3Code.TurkishLire
+    elif 'TL' == text and country_code == CountryAlpha2Code.Turkey:
+        return Currency3Code.TurkishLire
     elif '₡' in text:
         return Currency3Code.CostaRicanColones
     elif '¥' in text:
