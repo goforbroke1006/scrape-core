@@ -248,6 +248,7 @@ class CountryAlpha2Code(Enum):
     #
     
     Guernsey = 'GG'
+    Jersey = 'JE'
     
     #
     # Alias
