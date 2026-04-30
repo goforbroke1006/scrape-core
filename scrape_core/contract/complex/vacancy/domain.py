@@ -37,6 +37,8 @@ class Education:
 
 @dataclass
 class VacancyListing(ScrapeResult):
+    source_listing_id: Optional[str] = None
+    
     locations: List[AddressInfo] = field(default_factory=list)
     
     salary: SalaryInfo = field(default_factory=SalaryInfo)
