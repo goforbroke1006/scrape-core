@@ -10,6 +10,7 @@ from ...prime.count_info import CountInfo
 from ...prime.country_code.country_code import CountryAlpha2Code
 from ...prime.currency.currency_code import Currency3Code
 from ...prime.datetime import DateTimeInfo
+from ...prime.geo.address import AddressInfo
 
 
 @dataclass
@@ -31,8 +32,7 @@ class Experience:
 
 @dataclass
 class VacancyListing(ScrapeResult):
-    countries: List[CountryAlpha2Code] = field(default_factory=list)
-    locations: List[str] = field(default_factory=list)
+    locations: List[AddressInfo] = field(default_factory=list)
     
     salary: SalaryInfo = field(default_factory=SalaryInfo)
     
