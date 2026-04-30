@@ -7,7 +7,6 @@ from .obj_value_employee_grade import EmployeeGrade
 from .obj_value_salary_period import SalaryPeriod
 from .obj_value_salary_type import SalaryType
 from ...prime.count_info import CountInfo
-from ...prime.country_code.country_code import CountryAlpha2Code
 from ...prime.currency.currency_code import Currency3Code
 from ...prime.datetime import DateTimeInfo
 from ...prime.geo.address import AddressInfo
@@ -28,6 +27,12 @@ class SalaryInfo:
 class Experience:
     text: Optional[str] = None
     years_min: Optional[str] = None
+
+
+@dataclass
+class Education:
+    text: Optional[str] = None
+    # TODO:
 
 
 @dataclass
@@ -54,6 +59,7 @@ class VacancyListing(ScrapeResult):
     tech_stack: List[str] = field(default_factory=list)
     employee_grade: Optional[EmployeeGrade] = None
     experience: Experience = field(default_factory=Experience)
+    education: Education = field(default_factory=Education)
     job_format_text: Optional[str] = None
     contract_type_text: Optional[str] = None
     
