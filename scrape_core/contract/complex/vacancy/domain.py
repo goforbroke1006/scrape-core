@@ -36,6 +36,12 @@ class Education:
 
 
 @dataclass
+class GradeInfo:
+    text: Optional[str] = None
+    grade: Optional[EmployeeGrade] = None
+
+
+@dataclass
 class VacancyListing(ScrapeResult):
     source_listing_id: Optional[str] = None
     
@@ -59,7 +65,7 @@ class VacancyListing(ScrapeResult):
     deadline_at: DateTimeInfo = field(default_factory=DateTimeInfo)
     
     tech_stack: List[str] = field(default_factory=list)
-    employee_grade: Optional[EmployeeGrade] = None
+    employee_grade: GradeInfo = field(default_factory=GradeInfo)
     experience: Experience = field(default_factory=Experience)
     education: Education = field(default_factory=Education)
     job_format_text: Optional[str] = None
