@@ -82,6 +82,14 @@ class RentConditions:
 
 
 @dataclass
+class ForeclosuresInfo:
+    enabled: Optional[bool] = None
+    posted_at: DateTimeInfo = field(default_factory=DateTimeInfo)
+    auction_at: DateTimeInfo = field(default_factory=DateTimeInfo)
+    mortgage_lender: Optional[str] = None
+
+
+@dataclass
 class RealEstateListing(ScrapeResult):
     deal_type: DealType = None
     
@@ -127,4 +135,4 @@ class RealEstateListing(ScrapeResult):
     
     phone_number: Optional[str] = None
     
-    foreclosures: Optional[bool] = None
+    foreclosures: ForeclosuresInfo = field(default_factory=ForeclosuresInfo)
