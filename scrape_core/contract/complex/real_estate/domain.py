@@ -126,3 +126,5 @@ class RealEstateListing(ScrapeResult):
     construction_materials: List[str] = field(default_factory=list)
     
     phone_number: Optional[str] = None
+    
+    foreclosures: Optional[bool] = None
