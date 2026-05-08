@@ -105,6 +105,7 @@ class RealEstateListing(ScrapeResult):
     living_area_sq_m: AreaInfo = field(default_factory=AreaInfo)
     living_area_sq_ft: AreaInfo = field(default_factory=AreaInfo)
     plot_area_sq_m: AreaInfo = field(default_factory=AreaInfo)
+    plot_area_sq_ft: AreaInfo = field(default_factory=AreaInfo)
     plot_area_sq_ha: AreaInfo = field(default_factory=AreaInfo)
     
     rooms: CountInfo = field(default_factory=CountInfo)
