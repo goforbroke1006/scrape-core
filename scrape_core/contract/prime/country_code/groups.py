@@ -102,6 +102,7 @@ def get_all_from_latam() -> List[CountryAlpha2Code]:
         CountryAlpha2Code.Mexico,
         CountryAlpha2Code.Nicaragua,
         CountryAlpha2Code.Panama,
+        CountryAlpha2Code.Paraguay,
         CountryAlpha2Code.Peru,
         CountryAlpha2Code.Uruguay,
         CountryAlpha2Code.SaintVincentAndTheGrenadines,
