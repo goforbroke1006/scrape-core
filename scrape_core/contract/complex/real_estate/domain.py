@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from fractions import Fraction
-from typing import Optional, List
+from typing import Optional, List, Dict
 
 from scrape_core.common import ScrapeResult
 from scrape_core.contract.prime.area import AreaInfo
@@ -34,6 +34,7 @@ class RentPeriod(Enum):
 @dataclass
 class PropertyFeatures:
     amenities_list: List[str] = field(default_factory=list)
+    amenities_dict: Dict[str, str] = field(default_factory=dict)
     
     storage_room: Optional[bool] = None
     balcony: Optional[bool] = None
