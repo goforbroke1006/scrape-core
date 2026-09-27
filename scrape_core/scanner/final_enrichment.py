@@ -70,6 +70,9 @@ def result_final_enrichment(
             if getattr(res, 'address').country is None:
                 getattr(res, 'address').country = pipeline.default_country(driver, datum)
             
+            if getattr(res, 'address').state is None:
+                res.address.state = pipeline.default_state(driver, datum)
+            
             if getattr(res, 'address').city is None:
                 res.address.city = pipeline.default_city(driver, datum)
             
