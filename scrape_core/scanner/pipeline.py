@@ -25,6 +25,10 @@ class StandardPipeline(ABC):
         return None
     
     @abstractmethod
+    def default_state(self, driver, datum) -> str | None:
+        return None
+    
+    @abstractmethod
     def default_city(self, driver, datum) -> str | None:
         return None
     
