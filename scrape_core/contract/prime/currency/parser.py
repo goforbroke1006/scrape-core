@@ -14,7 +14,7 @@ def parse_or_none(text: str, country_code: CountryAlpha2Code | None = None):
 def parse(text: str, country_code: CountryAlpha2Code | None = None):
     text_upper = text.upper().strip()
     
-    if 'KR' == text:
+    if 'KR' == text or 'kr' == text:
         if country_code == CountryAlpha2Code.Norway:
             return Currency3Code.NorwegianKrone
         if country_code == CountryAlpha2Code.Sweden:
