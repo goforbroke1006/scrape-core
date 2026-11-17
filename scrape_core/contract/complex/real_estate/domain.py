@@ -128,6 +128,7 @@ class RealEstateListing(ScrapeResult):
     property_type: Optional[str] = None
     
     price_per_m2: PriceInfo = field(default_factory=PriceInfo)
+    price_per_ft2: PriceInfo = field(default_factory=PriceInfo)
     
     rent_conditions: RentConditions = field(default_factory=RentConditions)
     
