@@ -31,6 +31,34 @@ class RentPeriod(Enum):
         return self.value.__str__()
 
 
+class TenureType(Enum):
+    """
+    Ownership duration of the property (or of the land under it).
+    
+    Freehold  - ownership has no end date (most of EU, US, etc.).
+    Leasehold - right expires after a fixed term and the property returns to
+                the freeholder / state. Covers e.g. Singapore 99/999-year leases,
+                China land-use rights (70/50/40 years), UK leaseholds,
+                Thailand 30-year leases, Hong Kong government leases.
+    """
+    Freehold = 'freehold'
+    Leasehold = 'leasehold'
+    
+    def __str__(self) -> str:
+        return self.value
+
+
+@dataclass
+class TenureInfo:
+    text: Optional[str] = None  # raw label as on the site, e.g. "99-year leasehold"
+    kind: Optional[TenureType] = None
+    term_years: CountInfo = field(default_factory=CountInfo)  # full lease length: 99, 70, 999...
+    remaining_years: CountInfo = field(default_factory=CountInfo)
+    start_date: DateTimeInfo = field(default_factory=DateTimeInfo)  # lease commencement
+    end_date: DateTimeInfo = field(default_factory=DateTimeInfo)  # lease expiry
+    renewable: Optional[bool] = None  # e.g. China residential land-use rights auto-renew
+
+
 @dataclass
 class PropertyFeatures:
     amenities_list: List[str] = field(default_factory=list)
@@ -139,3 +167,5 @@ class RealEstateListing(ScrapeResult):
     phone_number: Optional[str] = None
     
     foreclosures: ForeclosuresInfo = field(default_factory=ForeclosuresInfo)
+    
+    tenure: TenureInfo = field(default_factory=TenureInfo)
